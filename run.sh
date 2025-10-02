@@ -9,10 +9,8 @@
 # ===============================
 
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python3 topilmadi. Iltimos o'rnating."
-    echo "Ubuntu/Debian: sudo apt install python3 python3-venv python3-pip"
-    echo "macOS: brew install python3"
-    exit 1
+    echo "❌ Python3 topilmadi. Avtomatik o‘rnatiladi..."
+    sudo apt update && sudo apt install -y python3 python3-venv python3-pip
 fi
 
 if ! command -v pip &> /dev/null; then
