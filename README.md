@@ -75,5 +75,6 @@ Terminalda:
 ```bash
 git clone https://github.com/sadiikovv/click-device.git
 cd click-device
+chmod +x run.sh
 ./run.sh
 ```
