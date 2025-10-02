@@ -1,4 +1,4 @@
-# 🚀 Click Account Parameters Capture
+# 🚀 Click Account Parameters
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Playwright](https://img.shields.io/badge/Playwright-1.55.0-orange)
@@ -18,7 +18,7 @@ Skript Click akkauntiga telefon orqali kiradi va API responselaridan akkauntga o
 1. **Reponi yuklab oling**
    - Git orqali:
      ```bash
-     git clone https://github.com/sadiikovv/click-capture.git
+     git clone https://github.com/sadiikovv/click-device.git
      cd click-capture
      ```
    - Yoki zip faylni yuklab olib, oching va papkani oching.
@@ -78,13 +78,13 @@ Skript Click akkauntiga telefon orqali kiradi va API responselaridan akkauntga o
 ## 🛠 Ishga tushirish
 Linux/macOS:
 ```bash
-git clone https://github.com/sadiikovv/click-capture.git
+git clone https://github.com/sadiikovv/click-device.git
 cd click-capture
 ./run.sh
 ```
 Windows:
 ```bash
-git clone https://github.com/sadiikovv/click-capture.git
+git clone https://github.com/sadiikovv/click-device.git
 cd click-capture
 run.bat
 ```
