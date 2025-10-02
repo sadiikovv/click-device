@@ -19,7 +19,7 @@ Skript Click akkauntiga telefon orqali kiradi va API responselaridan akkauntga o
    - Git orqali:
      ```bash
      git clone https://github.com/sadiikovv/click-device.git
-     cd click-capture
+     cd click-device
      ```
    - Yoki zip faylni yuklab olib, oching va papkani oching.
 
@@ -79,12 +79,12 @@ Skript Click akkauntiga telefon orqali kiradi va API responselaridan akkauntga o
 Linux/macOS:
 ```bash
 git clone https://github.com/sadiikovv/click-device.git
-cd click-capture
+cd click-device
 ./run.sh
 ```
 Windows:
 ```bash
 git clone https://github.com/sadiikovv/click-device.git
-cd click-capture
+cd click-device
 run.bat
 ```
