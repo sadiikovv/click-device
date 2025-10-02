@@ -167,7 +167,7 @@ def run(phone_number: str, headless=True):
 
         try:
             cookies = context.cookies()
-            with open("playwright_cookies.json", "w", encoding="utf-8") as f:
+            with open("cookies.json", "w", encoding="utf-8") as f:
                 json.dump(cookies, f, ensure_ascii=False, indent=2)
             print("[+] Cookies saved.")
         except Exception as e:
@@ -180,4 +180,5 @@ def run(phone_number: str, headless=True):
 if __name__ == "__main__":
     phone = os.environ.get("CLICK_PHONE") or input("Telefon raqamini kiriting. Misol uchun(998909009090): ").strip()
     run(phone, headless=True)
+
 
