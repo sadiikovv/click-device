@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# click_playwright_capture_only_save_json.py
-
 import json
 import os
 from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
@@ -42,7 +39,7 @@ def pretty_print_request_response(entry, idx=None):
             print(str(resp)[:8000])
 
 def save_captured_json(captured):
-    """Captured ma'lumotlarni responses.json ga saqlash"""
+
     try:
         with open("responses.json", "w", encoding="utf-8") as f:
             json.dump(captured, f, ensure_ascii=False, indent=2)
@@ -96,7 +93,7 @@ def run(phone_number: str, headless=True):
         print("[*] Opening page:", TARGET_URL)
         page.goto(TARGET_URL, wait_until="domcontentloaded", timeout=30000)
 
-        # fill phone
+
         try:
             page.wait_for_selector(PHONE_SELECTOR, timeout=20000)
             page.fill(PHONE_SELECTOR, phone_number)
@@ -106,7 +103,6 @@ def run(phone_number: str, headless=True):
             browser.close()
             return
 
-        # click login
         try:
             page.click(LOGIN_BTN_SELECTOR, timeout=10000)
             print("[+] Login/submit clicked.")
@@ -117,7 +113,6 @@ def run(phone_number: str, headless=True):
 
         page.wait_for_timeout(3000)
 
-        # trust checkbox
         try:
             page.wait_for_selector(TRUST_BTN_OFF_SELECTOR, timeout=3000)
             try:
@@ -135,7 +130,6 @@ def run(phone_number: str, headless=True):
             else:
                 print("[*] Trust checkbox not present; continuing.")
 
-        # ask for SMS
         token = input("SMS kodni kiriting (yoki confirm_token): ").strip()
         if not token:
             print("No token provided; exiting.")
@@ -156,7 +150,6 @@ def run(phone_number: str, headless=True):
 
         page.wait_for_timeout(3000)
 
-        # PIN stage
         try:
             page.wait_for_selector(PIN_INPUT_SELECTOR, timeout=5000)
             print("[*] PIN input detected.")
@@ -172,7 +165,6 @@ def run(phone_number: str, headless=True):
         except PWTimeout:
             print("[*] No PIN input found; skipping PIN stage.")
 
-        # save cookies
         try:
             cookies = context.cookies()
             with open("playwright_cookies.json", "w", encoding="utf-8") as f:
@@ -181,7 +173,6 @@ def run(phone_number: str, headless=True):
         except Exception as e:
             print("[!] Could not save cookies:", e)
 
-        # save all captured requests/responses to responses.json
         save_captured_json(captured)
 
         browser.close()
@@ -189,3 +180,4 @@ def run(phone_number: str, headless=True):
 if __name__ == "__main__":
     phone = os.environ.get("CLICK_PHONE") or input("Telefon raqamini kiriting. Misol uchun(998909009090): ").strip()
     run(phone, headless=True)
+
