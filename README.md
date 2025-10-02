@@ -24,15 +24,10 @@ Skript Click akkauntiga telefon orqali kiradi va API responselaridan akkauntga o
    - Yoki zip faylni yuklab olib, oching va papkani oching.
 
 2. **Virtual muhit o‘rnating va Playwright o‘rnating**
-   - Linux / macOS:
+   - Terminalda:
      ```bash
      ./run.sh
      ```
-   - Windows:
-     ```bat
-     run.bat
-     ```
-     (Yoki `run.bat` ni ikki marta bosib ishga tushiring.)
 
 3. **Skriptni ishga tushiring**
    - Agar `run.sh`/`run.bat` ishlamasa:
@@ -76,15 +71,9 @@ Skript Click akkauntiga telefon orqali kiradi va API responselaridan akkauntga o
 ---
 
 ## 🛠 Ishga tushirish
-Linux/macOS:
+Terminalda:
 ```bash
 git clone https://github.com/sadiikovv/click-device.git
 cd click-device
 ./run.sh
-```
-Windows:
-```bash
-git clone https://github.com/sadiikovv/click-device.git
-cd click-device
-run.bat
 ```
