@@ -1,34 +1,43 @@
+#!/data/data/com.termux/files/usr/bin/bash
 # ===============================
-# Click Device Capture — run.sh
+# Click Device Capture — Termux run.sh
 # ===============================
-# Ushbu skript:
-# 1) Python va pip mavjudligini tekshiradi
+# Ushbu skript Termux muhitida ishlaydi:
+# 1) Python3 va pip mavjudligini tekshiradi, yo‘q bo‘lsa o‘rnatadi
 # 2) Virtualenv yaratadi va faollashtiradi
-# 3) Requirements.txt va Playwright o'rnatadi
+# 3) Requirements va Playwright o‘rnatadi
 # 4) main.py ni ishga tushiradi
 # ===============================
 
+# 1️⃣ Python3 tekshirish
 if ! command -v python3 &> /dev/null; then
-    echo "❌ Python3 topilmadi. Avtomatik o‘rnatiladi..."
-    # Ubuntu/Debian uchun
-    sudo apt update && sudo apt install -y python3 python3-venv python3-pip
+    echo "❌ Python3 topilmadi. Termuxda o'rnatilyapti..."
+    pkg update -y
+    pkg install -y python
 fi
 
+# 2️⃣ pip tekshirish
+if ! command -v pip &> /dev/null; then
+    echo "⚠️ pip topilmadi, o'rnatilyapti..."
+    python3 -m ensurepip --upgrade
+fi
+
+# 3️⃣ Virtualenv yaratish
 if [ ! -d "venv" ]; then
     echo "🛠 Virtual muhit yaratilmoqda..."
     python3 -m venv venv
 fi
 
+# 4️⃣ Virtualenvni faollashtirish
 source venv/bin/activate
 
+# 5️⃣ Pip va paketlarni yangilash
 pip install --upgrade pip
-
 pip install -r requirements.txt
 
-if ! command -v playwright &> /dev/null; then
-    echo "🌐 Playwright o'rnatilyapti..."
-    pip install playwright
-    playwright install
-fi
+# 6️⃣ Playwright browserlarini o‘rnatish
+pip install playwright
+playwright install
 
+# 7️⃣ Asosiy skriptni ishga tushirish
 python3 main.py
