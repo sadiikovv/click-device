@@ -10,12 +10,8 @@
 
 if ! command -v python3 &> /dev/null; then
     echo "❌ Python3 topilmadi. Avtomatik o‘rnatiladi..."
+    # Ubuntu/Debian uchun
     sudo apt update && sudo apt install -y python3 python3-venv python3-pip
-fi
-
-if ! command -v pip &> /dev/null; then
-    echo "⚠️ pip topilmadi, o'rnatilyapti..."
-    python3 -m ensurepip --upgrade
 fi
 
 if [ ! -d "venv" ]; then
